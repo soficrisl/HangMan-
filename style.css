@@ -1,0 +1,111 @@
+body {
+    display: grid;
+    justify-content: center;
+    background: beige;
+    padding-right: 150px;
+
+}
+
+.main-title{
+    display: grid;
+    font-family: 'Montserrat', sans-serif;
+    grid-area: mainTitle;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.level-title{
+    display: grid;
+    grid-area: levelTitle;
+    justify-content: center;
+    margin-top: 5px;
+}
+.hangman-box {
+    display: grid;
+    grid-area: leftFrame;
+    padding-top: 20px;
+    justify-content: center;
+}
+.hangman-box img {
+    max-width: 350px;
+}
+
+.attemps-counter {
+    display: grid;
+    grid-area: attemps;
+    justify-content: center;
+    padding-top: 100px;
+}
+.word-display {
+    display: flex;
+    gap: 10px;
+    grid-area: words;
+    list-style: none;
+    align-items: baseline;
+    justify-content: center;
+}
+.word-display .letter {
+    width: 28px;
+    font-size: xx-large;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 3px solid black;
+
+    margin-bottom: 20px;
+}
+
+.word-display .letter.guessed {
+    border-color: transparent;
+    margin: 0px 0 35px;   
+}
+
+.keyboard-buttons {
+    display: flex;
+    grid-area: keyboard;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.keyboard-buttons button {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    width: calc(100% / 9 - 5px);
+    padding: 7px;
+    background:#87CEEB;
+    text-transform: capitalize;  
+    border: #04296e;
+}
+
+.keyboard-buttons button:hover{
+    background:#6495ED;
+}
+
+.game-frame {
+    display: grid;
+    grid-area: rightFrame;
+    justify-content: center;
+    grid-template-areas: 
+    "attemps"
+    "words"
+    "keyboard";
+}
+
+.main-container {
+    width: 850px;
+    background: white;
+    border-radius: 20px;
+    display: grid;
+    grid-template-areas: 
+    "leftFrame rightFrame";
+}
+
+.header {
+    display: grid;
+    grid-template-areas: 
+    "mainTitle"
+    "levelTitle";
+}
+
+
