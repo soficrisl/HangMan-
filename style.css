@@ -1,14 +1,18 @@
+@font-face {
+    font-family: 'GoodBrush';
+    src: url('fonts/GoodBrush.otf');
+}
+
 body {
     display: grid;
     justify-content: center;
     background: beige;
-    padding-right: 150px;
-
+    padding-top: 55px;
 }
 
 .main-title{
     display: grid;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'GoodBrush';
     grid-area: mainTitle;
     justify-content: center;
     margin-bottom: 5px;
@@ -20,6 +24,31 @@ body {
     justify-content: center;
     margin-top: 5px;
 }
+
+.register {
+    display: grid;
+    grid-area: userInput;
+    justify-content: center;
+    text-align: center;
+    grid-template-columns: [first] 300px;
+}
+
+.user-name{
+    padding-bottom: 10px;
+    font-size: auto;
+}
+
+.button-start{
+    background:#87CEEB;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    text-align: center;
+    padding-bottom: 5px;
+    margin-left: 20px;
+    border: #04296e;
+}
+
+
 .hangman-box {
     display: grid;
     grid-area: leftFrame;
@@ -84,6 +113,11 @@ body {
     border: #04296e;
 }
 
+.keyboard-buttons button [disabled]{
+    opacity: 0.6;
+    pointer-events: none;
+}
+
 .keyboard-buttons button:hover{
     background:#6495ED;
 }
@@ -111,7 +145,9 @@ body {
     display: grid;
     grid-template-areas: 
     "mainTitle"
-    "levelTitle";
+    "levelTitle"
+    "userInput";
+
 }
 
 

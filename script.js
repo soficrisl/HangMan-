@@ -4,8 +4,10 @@ const attempsText = document.querySelector(".attemps-counter");
 const wordDisplay = document.querySelector(".word-display");
 const hangmanImage = document.getElementById("hangmanImage");
 
-
 let currentWord, countFails = 0, hits = [];
+let totalscore = 10000;
+let maxWords = 0;
+
 const maxFails = 6;
 
 const getWord = () => {
@@ -26,7 +28,24 @@ const getWord = () => {
     wordDisplay.innerHTML = listItemsString;
 }
 
+const nextWord = (prevScore) => {
+    if (maxWords === 1) {
+        console.log("Go to arcade table")
+        gameOver();
+    }
+    else {
+        console.log("next score" + prevScore)
+        maxWords += 1;
+        hits = new Array();
+        countFails = 0;
+        play()
+    }
+}
 
+const gameOver = () => {
+    window.location.href = "score.html";
+
+}
 
 const initGame = (button, clickedLetter) => {
     // Booleano para verificar si la letra se clickeada esta en la palabra actual
@@ -36,7 +55,7 @@ const initGame = (button, clickedLetter) => {
         let letter = currentWord[i];
         if (letter === clickedLetter) {
             letterFound = true;
-            
+
             hits.push(letter)
 
             // Obtenemos el elemento li que corresponde a la letra clickeada
@@ -51,23 +70,23 @@ const initGame = (button, clickedLetter) => {
 
     if (!letterFound) {
         countFails++;
+        totalscore -= 100;
+        console.log(totalscore)
         hangmanImage.src = `images/hangman-${countFails}.svg`
     }
-    
 
-    button.disabled = true;
     //Actualizamos el contenido del html
     attempsText.innerText = `Attemps: ${countFails} / ${maxFails}`;
+
     if (countFails === maxFails) {
-        return gameOver(false);
+        console.log("Perdiste")
+        return gameOver();
     }
 
     if (hits.length === currentWord.length) {
-        return gameOver(true);
+        return nextWord(totalscore);
     }
 }
-
-
 
 for (let i = 97; i <= 122; i++) {
     const button = document.createElement("button");
@@ -77,5 +96,9 @@ for (let i = 97; i <= 122; i++) {
     button.addEventListener("click", e => initGame(e.target, String.fromCharCode(i)))
 }
 
-getWord();
+const play = () => {
+    getWord();
+}
+
+play();
 
