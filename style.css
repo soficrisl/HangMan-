@@ -57,7 +57,8 @@ body {
 
 .word-display .letter.guessed {
     border-color: transparent;
-    margin: 0px 0 35px;   
+    margin: 0px 0 35px;
+
 }
 
 .keyboard-buttons {
