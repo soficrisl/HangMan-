@@ -1,7 +1,10 @@
 /*Teclado*/
 const keyboardButtons = document.querySelector(".keyboard-buttons");
 const attempsText = document.querySelector(".attemps-counter");
+const winText = document.querySelector(".victory-counter");
+const currentScore = document.querySelector(".score-counter");
 const wordDisplay = document.querySelector(".word-display");
+
 
 /*Imagen*/
 const hangmanImage = document.getElementById("hangmanImage");
@@ -17,6 +20,7 @@ const playnext = document.querySelector(".play-next");
 /*After game*/
 const gameover = document.querySelector(".postgame-modal"); 
 const playAgain = document.querySelector(".play-again"); 
+
 
 const getWord = () => {
     // Tomamos una palabra aleatoria en relacion al tamagno de la lista
@@ -42,9 +46,13 @@ const resetGame = () => {
     countFails = 0;
     currentWord = ""; 
     hangmanImage.src = `images/hangman-${0}.svg`; 
-    attempsText.innerText = `Attemps: ${0} / ${maxFails}`;
+    winText.innerText = `Victory: ${winCount}`;
+
+    attempsText.innerText = `Times: ${0} / ${maxFails}`;
     keyboardButtons.querySelectorAll("button").forEach(btn => btn.disabled = false); 
+    keyboardButtons.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "#aab095"); 
 }
+
 
 const finalReset = () => {
     winCount = 0; 
@@ -84,7 +92,7 @@ const gameOver = () => {
 
 }
 
-const duringGame = (isVictory) => {
+const duringGame = (isVictory, button) => {
     round_counter++; 
     console.log(round_counter);
     console.log(round); 
@@ -95,7 +103,7 @@ const duringGame = (isVictory) => {
     b.innerText = currentWord; 
     if (!isVictory) {
         console.log("por lo menos entra en la funcion"); 
-        t1.innerHTML = "You did not got it!" 
+        t1.innerHTML = "You did not get it!" 
     } else {
         t1.innerHTML = "You got it!"
     }
@@ -127,30 +135,35 @@ const guessing = (button, clickedLetter) => {
             let listItem = wordDisplay.querySelectorAll("li")[i];
             // La letra aparece 
             listItem.innerText = letter;
-            listItem.classList.add("letter-guessed");
+            listItem.classList.add("letter-guessed");      
         }
     }
 
     if (!letterFound) {
         countFails++;
         total_fails++;
+        
         hangmanImage.src = `images/hangman-${countFails}.svg`
     } {
     
-    button.disabled = true;
+        button.disabled = true;
+        button.style.backgroundColor = '#006A4E';
+    
     //Actualizamos el contenido del html
-    attempsText.innerText = `Attemps: ${countFails} / ${maxFails}`; 
+    attempsText.innerText = `Times: ${countFails} / ${maxFails}`; 
     console.log(countFails + ":" + maxFails); 
+    console.log(round); 
+    let  nscore = 600*round - total_fails*100;
+    currentScore.innerHTML =  `Score: ${nscore}`; 
     if (countFails === maxFails) { 
         return duringGame(false);
     }
     if (hits.length === currentWord.length) {
-        winCount++; 
+        winCount++;
         return duringGame(true);
     }
 }
 }
-
 
 for (let i = 65; i <= 90; i++) {
     const button = document.createElement("button");
@@ -167,10 +180,13 @@ const initialize_game = () => {
     button1.disabled = false; 
     button2.disabled = false; 
     button3.disabled = false; 
-    //aqui se puede poner lo del header que cambie el texto de level
+    let labelLevel = document.querySelector(".level-title");
+
+    
     button1.addEventListener("click", function ()  {
         round = 3; 
-        index_w = 0; 
+        index_w = 0;
+        labelLevel.innerText = `Level ${index_w + 1}`;
         startgame(); 
         button2.disabled = true; 
         button3.disabled = true; 
@@ -178,6 +194,7 @@ const initialize_game = () => {
     button2.addEventListener("click", function ()  {
         round = 4; 
         index_w = 1; 
+        labelLevel.innerText = `Level ${index_w + 1}`;
         button1.disabled = true; 
         button3.disabled = true;
         startgame(); 
@@ -185,6 +202,7 @@ const initialize_game = () => {
     button3.addEventListener("click", function ()  {
         round = 5; 
         index_w = 2; 
+        labelLevel.innerText = `Level ${index_w + 1}`;
         startgame(); 
         button1.disabled = true; 
         button2.disabled = true;
@@ -196,9 +214,9 @@ const startgame = () => {
     button1.disabled = true; 
     button2.disabled = true; 
     button3.disabled = true; 
+    currentScore.innerHTML =  `Score: ${round*600}`;
     getWord();  
 }
-
 
 let currentWord = '', countFails = 0, hits = [];
 const maxFails = 6;  
