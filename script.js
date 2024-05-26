@@ -22,8 +22,6 @@ const gameover = document.querySelector(".postgame-modal");
 const playAgain = document.querySelector(".play-again"); 
 
 
-
-
 const getWord = () => {
     // Tomamos una palabra aleatoria en relacion al tamagno de la lista
     let smallList = wordList[index_w];
@@ -55,6 +53,7 @@ const resetGame = () => {
     keyboardButtons.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "#aab095"); 
 }
 
+
 const finalReset = () => {
     winCount = 0; 
     count = 0; 
@@ -65,7 +64,9 @@ const finalReset = () => {
     round_counter = 0;
     pregame.classList.remove("nshow"); 
     initialize_game();  
+
 }
+
 
 const gameOver = () => {
     playAgain.disabled = false;
@@ -134,7 +135,7 @@ const guessing = (button, clickedLetter) => {
             let listItem = wordDisplay.querySelectorAll("li")[i];
             // La letra aparece 
             listItem.innerText = letter;
-            listItem.classList.add("letter-guessed");       
+            listItem.classList.add("letter-guessed");      
         }
     }
 
