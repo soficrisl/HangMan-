@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,34 +12,55 @@
 
 <body>
     <div class="header">
-        <h1 class="main-title">Hangman Game</h1>
+        <h1 class="main-title">The Tortured Man's Department: The Game</h1>
         <h2 class="level-title">Level 1</h2>
-    </div>
-
+    </div> 
     <div class="main-container">
-
         <div class="hangman-box">
             <img id="hangmanImage" src="images/hangman-0.svg" alt="gallow">
         </div>
-        
-
         <div class="game-frame">
-            
-            <h3 class="attemps-counter"><b>Attemps: 0/6</b></h3>
-
+            <h3 class="attemps-counter">Attemps: <b>0/6</b></h3>
             <ul class="word-display">
-                
+                <li class = "letter"> </li>
+                <li class = "letter"> </li>
+                <li class = "letter"> </li>
+                <li class = "letter"> </li>
+                <li class = "letter"> </li>
+                <li class = "letter"> </li>
             </ul>
-
-
-            <div class="keyboard-buttons">
-            </div>
-
+            <div class="keyboard-buttons"></div>
         </div>
-
-            
     </div>
-
+    <div> 
+        <div class = "pregame-modal"> 
+            <div class="modal-content">
+                <h2> Welcome to the Hangman game!</h2>
+                <p> How many words do you wanna guess?</p>
+                <div class= "level-buttons">  
+                    <button> Level 1 </button>
+                    <button> Level 2 </button>
+                    <button> Level 3 </button> 
+                </div>
+                <div class = "initiate"> 
+                    <button> START </button>
+                </div>
+            </div>
+        </div>
+        <div class = "duringGame-modal"> 
+            <div class = "modal-content"> 
+                <h2> You got it!</h2>
+                <button class="play-again"> Next word </button>
+            </div>
+        </div>
+        <div class = "postgame-modal"> 
+            <div class = "modal-content"> 
+                <h2> Game Over!</h2>
+                <p> Correct word: <b> </b></p>
+                <p> Final score: </p>
+                <button class="play-again"> Restart Game </button>
+            </div>
+        </div>
 </body>
 
 </html>
