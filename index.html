@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
+    <script src="wordsList.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="main-title">The Tortured Man's Department: The Game</h1>
+        <h2 class="level-title">Level 1</h2>
+    </div>
+    <div class="main-container">
+
+        <div class="hangman-box">
+            <img id="hangmanImage" src="images/hangman-0.svg" alt="gallow">
+        </div>
+
+        <div class="game-frame">
+            <div class="board"> 
+                <h3 class="attemps-counter">Times: <b>0/6</b></h3>
+            <h3 class="victory-counter">Victory: <b>0</b></h3>
+            <h3 class="score-counter">Score: <b>0</b></h3>
+            </div>
+            <ul class="word-display">
+            </ul>
+            <div class="keyboard-buttons">
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <div class="pregame-modal">
+            <div class="modal-content">
+                <h2> Welcome to the Hangman game!</h2>
+                <p> How many words do you wanna guess?</p>
+                <div class="level-buttons">
+                    <button id="level1"> Level 1 </button>
+                    <button id="level2"> Level 2 </button>
+                    <button id="level3"> Level 3</button>
+                </div>
+            </div>
+        </div>
+        <div class="duringGame-modal">
+            <div class="modal-content">
+                <h2> You got it!</h2>
+                <p> The word was: <b> hola </b> </p>
+                <button class="play-next"> Next word </button>
+            </div>
+        </div>
+        <div class="postgame-modal">
+            <div class="modal-content">
+                <h2> Game Over!</h2>
+                <h3> Correct word: <b> </b></h3>
+                <p> Final score: <spam> </spam>
+                </p>
+                <button class="play-again"> Restart Game </button>
+            </div>
+        </div>
+</body>
+
+</html>
