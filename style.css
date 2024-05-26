@@ -1,97 +1,121 @@
-@font-face {
-    font-family: 'GoodBrush';
-    src: url('fonts/GoodBrush.otf');
+
+* {
+    margin: 0%; 
+    border: 0%;
 }
 
 body {
-    display: grid;
-    justify-content: center;
-    background: beige;
-    padding-top: 55px;
+    background-color: rgb(108, 108, 108);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%; 
+    width: 100%;
+    margin: 1%;
 }
 
-.main-title{
-    display: grid;
-    font-family: 'GoodBrush';
-    grid-area: mainTitle;
-    justify-content: center;
-    margin-bottom: 5px;
+.header {
+    margin: 1%;
+    padding: 2%;
+    height: 50%;
+    width: 54%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly; 
+    border-radius: 10px;
 }
 
-.level-title{
-    display: grid;
-    grid-area: levelTitle;
-    justify-content: center;
-    margin-top: 5px;
+.header .level-title {
+    padding:1%;
+    margin-top: 1.5%;
+    border: 0.1vh solid; 
+    border-color: black;
+    background-color: grey;
+
 }
 
-.register {
-    display: grid;
-    grid-area: userInput;
-    justify-content: center;
-    text-align: center;
-    grid-template-columns: [first] 300px;
+.main-container {
+    margin:1%;
+    height: 10% ;
+    width: 54%;
+    background-color: white;
+    padding: 2%;
+    display: flex;
+    display: row;
+    border-radius: 10px;
 }
-
-.user-name{
-    padding-bottom: 10px;
-    font-size: auto;
-}
-
-.button-start{
-    background:#87CEEB;
-    margin-bottom: 10px;
-    padding-top: 5px;
-    text-align: center;
-    padding-bottom: 5px;
-    margin-left: 20px;
-    border: #04296e;
-}
-
 
 .hangman-box {
-    display: grid;
+    display: flex;
     grid-area: leftFrame;
-    padding-top: 5px;
+    margin-right: 10%;
+    padding: 5%;
+    background-color: rgb(255, 255, 255);
+    width:  50%;
+    height: 100%; 
     justify-content: center;
-    align-items: center;
+    align-self: center;
+    align-items: center; 
 }
+
 .hangman-box img {
-    width: 350px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
+    align-self:flex-start; 
+    margin-right: 10%;
+}
+
+.game-frame{
+    margin: 1%;
+    padding: 1%; 
+    display: flex; 
+    flex-direction: column;
+    justify-content:space-evenly;
 }
 
 .attemps-counter {
-    display: grid;
-    grid-area: attemps;
-    justify-content: center;
-    padding-top: 100px;
+    margin-top: 1%;
+    background-color: #aab095;
+    align-self: center;
+    padding: 4%;
+    border-radius: 10px;
 }
 .word-display {
     display: flex;
-    gap: 10px;
-    grid-area: words;
     list-style: none;
+    flex-direction: row;
+    gap: 5%;
     align-items: baseline;
     justify-content: center;
-}
-.word-display .letter {
-    width: 28px;
+    margin-top: 20%;
+    margin-left: 2%;
+    margin-right: 2%;
+
+  }
+  
+  .word-display .letter {
+    width: 100%; /* take up full width of container */
     font-size: xx-large;
     font-weight: 300;
     text-align: center;
     text-transform: uppercase;
-    border-bottom: 3px solid black;
+    border-bottom: 5px solid black; /* set border width to a fixed value */
 
-    margin-bottom: 20px;
-}
-
-.word-display .letter.guessed {
-    border-color: transparent;
-    margin: 0px 0 35px;
-}
+  }
+  .word-display .letter-guessed {
+    width: 100%; /* take up full width of container */
+    font-size: xx-large;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 0px solid;
+  }
 
 .keyboard-buttons {
+    margin-top: 10%;
     display: flex;
     grid-area: keyboard;
     gap: 5px;
@@ -100,17 +124,18 @@ body {
     padding-bottom: 20px;
     padding-right: 10px;
     margin-left: 50px;
-    margin-bottom: 25px;
+    margin-bottom: 1%;
 }
-.keyboard-buttons button {
+.keyboard-buttons button{
     color: white;
     font-size: 1rem;
     font-weight: 500;
     width: calc(100% / 9 - 5px);
     padding: 7px;
-    background:#87CEEB;
+    background:#aab095;
     text-transform: capitalize;  
-    border: #04296e;
+    border: #000000;
+    border: 2px;
 }
 
 .keyboard-buttons button [disabled]{
@@ -119,35 +144,155 @@ body {
 }
 
 .keyboard-buttons button:hover{
-    background:#6495ED;
+ background: blue; 
 }
 
-.game-frame {
-    display: grid;
-    grid-area: rightFrame;
+.pregame-modal {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
     justify-content: center;
-    grid-template-areas: 
-    "attemps"
-    "words"
-    "keyboard";
+    align-items: center;
+  }
+
+.nshow {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    left: -9999px; 
+}
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    background-color: white;
+    padding: 5%;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+  }
+  
+  .modal-content h2 {
+    font-size: 36px; /* make the title big */
+    margin-bottom: 1%; /* add some space between the title and the rest of the content */
+  }
+
+  .modal-content p { 
+    margin: 1%;
+  }
+  
+  .level-buttons {
+    display: flex;
+    flex-direction: row;
+    gap:5%; 
+    justify-content: space-between; /* space the level buttons evenly */
+    margin: 1%; /* add some space between the level buttons and the start button */
+}
+  
+  .level-buttons button {
+    width: calc(33.33% - 10px); /* make the level buttons equal width */
+    margin: 5px; /* add some space between the level buttons */
+    padding: 7px;
+    background:#aab095;
+    text-transform: capitalize;  
+    border: #000000;
+
 }
 
-.main-container {
-    width: 950px;
-    background: white;
-    border-radius: 20px;
-    display: grid;
-    grid-template-areas: 
-    "leftFrame rightFrame";
+.level-buttons button:hover {
+    background:#98a371;
+}
+  
+  .initiate button  {
+    width: 98%; /* make the start button full width */
+    margin-top: 3%; /* add some space between the level buttons and the start button */
+    text-transform: capitalize;  
+    border: #000000;
+    padding: 2%;
+    background:#edefe4;
+    text-transform: capitalize;  
+    border: #000000;
+    align-self: center;
+    font-weight: bold;
 }
 
-.header {
-    display: grid;
-    grid-template-areas: 
-    "mainTitle"
-    "levelTitle"
-    "userInput";
-
+.initiate button:hover {
+    background:#aab095;
 }
 
+.duringGame-modal {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.duringGame-modal button {
+    margin: 10%; /* add some space between the level buttons */
+    padding: 7%;
+    background:#aab095;
+    text-transform: capitalize;  
+    border: #000000;
+}
+
+.duringGame-modal button:hover {
+    background: #98a371;
+    text-transform: capitalize;  
+    border: #000000;
+}
+
+.postgame-modal {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.postgame-modal h2 { 
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.postgame-modal p {
+    font-size: 120%;
+    margin: 1%;
+    padding: 1%;
+}
+
+.postgame-modal button {
+    margin: 5%; /* add some space between the level buttons */
+    padding: 7%;
+    background:#aab095;
+    text-transform: capitalize;  
+    border: #000000;
+}
+
+.postgame-modal button:hover {
+    background:#98a371;
+}
