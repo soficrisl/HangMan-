@@ -22,14 +22,9 @@
         <div class="game-frame">
             <h3 class="attemps-counter">Attemps: <b>0/6</b></h3>
             <ul class="word-display">
-                <li class = "letter"> </li>
-                <li class = "letter"> </li>
-                <li class = "letter"> </li>
-                <li class = "letter"> </li>
-                <li class = "letter"> </li>
-                <li class = "letter"> </li>
             </ul>
-            <div class="keyboard-buttons"></div>
+            <div class="keyboard-buttons">
+            </div>
         </div>
     </div>
     <div> 
@@ -38,26 +33,24 @@
                 <h2> Welcome to the Hangman game!</h2>
                 <p> How many words do you wanna guess?</p>
                 <div class= "level-buttons">  
-                    <button> Level 1 </button>
-                    <button> Level 2 </button>
-                    <button> Level 3 </button> 
-                </div>
-                <div class = "initiate"> 
-                    <button> START </button>
+                    <button id = "level1"> Level 1 </button> 
+                    <button id = "level2" > Level 2 </button>
+                    <button id = "level3"> Level 3</button> 
                 </div>
             </div>
         </div>
         <div class = "duringGame-modal"> 
             <div class = "modal-content"> 
-                <h2> You got it!</h2>
-                <button class="play-again"> Next word </button>
+                <h2 > You got it!</h2>
+                <p > The word was: <b> hola </b> </p>
+                <button class="play-next"> Next word </button>
             </div>
         </div>
         <div class = "postgame-modal"> 
             <div class = "modal-content"> 
                 <h2> Game Over!</h2>
-                <p> Correct word: <b> </b></p>
-                <p> Final score: </p>
+                <h3> Correct word: <b> </b></h3>
+                <p> Final score: <spam> </spam></p>
                 <button class="play-again"> Restart Game </button>
             </div>
         </div>

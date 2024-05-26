@@ -95,7 +95,6 @@ body {
   }
   
   .word-display .letter {
-    background-color: red;
     width: 100%; /* take up full width of container */
     font-size: xx-large;
     font-weight: 300;
@@ -104,8 +103,16 @@ body {
     border-bottom: 5px solid black; /* set border width to a fixed value */
 
   }
+  .word-display .letter-guessed {
+    width: 100%; /* take up full width of container */
+    font-size: xx-large;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 0px solid;
+  }
 
-  .keyboard-buttons {
+.keyboard-buttons {
     margin-top: 10%;
     display: flex;
     grid-area: keyboard;
@@ -117,7 +124,7 @@ body {
     margin-left: 50px;
     margin-bottom: 1%;
 }
-.keyboard-buttons button {
+.keyboard-buttons button{
     color: white;
     font-size: 1rem;
     font-weight: 500;
@@ -126,14 +133,15 @@ body {
     background:#aab095;
     text-transform: capitalize;  
     border: #000000;
+    border: 2px;
 }
 
 .keyboard-buttons button:hover{
-    background:#6495ED;
+ background: blue; 
 }
 
 .pregame-modal {
-    opacity: 0;
+    opacity: 1;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -146,6 +154,15 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+.nshow {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    left: -9999px; 
+}
   
   .modal-content {
     display: flex;
@@ -207,7 +224,7 @@ body {
 }
 
 .duringGame-modal {
-    opacity: 0;
+    opacity: 1;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -236,7 +253,7 @@ body {
 }
 
 .postgame-modal {
-    opacity: 0;
+    opacity: 1;
     width: 100%;
     height: 100%;
     position: fixed;
