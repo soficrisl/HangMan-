@@ -53,17 +53,6 @@ const resetGame = () => {
     keyboardButtons.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "#aab095"); 
 }
 
-const finalReset = () => {
-    winCount = 0; 
-    count = 0; 
-    total_fails = 0; 
-    failed_rounds = 0; 
-    round = 0; 
-    index_w = 0; 
-    round_counter = 0;
-    pregame.classList.remove("nshow"); 
-    initialize_game();  
-}
 
 const finalReset = () => {
     winCount = 0; 
