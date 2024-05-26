@@ -15,6 +15,97 @@ body {
     margin: 1%;
 }
 
+/* Add media query for screens smaller than 768px */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+
+  .header {
+    width: 98%;
+  }
+
+  .main-container {
+    width: 98%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .hangman-box {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .hangman-box img {
+    width: 50%;
+    height: auto;
+  }
+
+  .game-frame {
+    width: 100%;
+  }
+
+  .attemps-counter {
+    padding: 2%;
+  }
+
+  .word-display {
+    margin-top: 10%;
+    flex-wrap: wrap;
+  }
+
+  .word-display .letter {
+    width: calc(33.33% - 5px);
+  }
+
+  .keyboard-buttons {
+    margin-left: 0;
+    margin-top: 5%;
+  }
+
+  .keyboard-buttons button {
+    width: calc(33.33% - 5px);
+  }
+}
+
+/* Add media query for screens smaller than 480px */
+@media screen and (max-width: 480px) {
+  .header {
+    height: 30%;
+  }
+
+  .hangman-box img {
+    width: 70%;
+  }
+
+  .word-display .letter {
+    width: calc(50% - 5px);
+  }
+
+  .keyboard-buttons button {
+    width: calc(50% - 5px);
+  }
+}
+
+/* Add media query for screens smaller than 320px */
+@media screen and (max-width: 320px) {
+  .header {
+    height: 25%;
+  }
+
+  .hangman-box img {
+    width: 90%;
+  }
+
+  .word-display .letter {
+    width: 100%;
+  }
+
+  .keyboard-buttons button {
+    width: 100%;
+  }
+}
+
 .header {
     margin: 1%;
     padding: 2%;
