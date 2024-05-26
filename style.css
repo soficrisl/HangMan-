@@ -1,3 +1,4 @@
+
 * {
     margin: 0%; 
     border: 0%;
@@ -33,6 +34,7 @@ body {
     border: 0.1vh solid; 
     border-color: black;
     background-color: grey;
+
 }
 
 .main-container {
@@ -134,6 +136,11 @@ body {
     text-transform: capitalize;  
     border: #000000;
     border: 2px;
+}
+
+.keyboard-buttons button [disabled]{
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 .keyboard-buttons button:hover{

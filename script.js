@@ -18,9 +18,6 @@ const playnext = document.querySelector(".play-next");
 const gameover = document.querySelector(".postgame-modal"); 
 const playAgain = document.querySelector(".play-again"); 
 
-
-
-
 const getWord = () => {
     // Tomamos una palabra aleatoria en relacion al tamagno de la lista
     let smallList = wordList[index_w];
@@ -59,6 +56,7 @@ const finalReset = () => {
     round_counter = 0;
     pregame.classList.remove("nshow"); 
     initialize_game();  
+
 }
 
 
@@ -200,6 +198,7 @@ const startgame = () => {
     button3.disabled = true; 
     getWord();  
 }
+
 
 let currentWord = '', countFails = 0, hits = [];
 const maxFails = 6;  
